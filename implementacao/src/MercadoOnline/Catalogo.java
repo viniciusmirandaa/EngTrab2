@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 public class Catalogo {
     public ArrayList<Produto> listaProdutos = new ArrayList<Produto>();
+    public ArrayList<Produto> listaProdComprados = new ArrayList<Produto>();
     Produto aux;
 
     public void cadastrarProduto(Produto p) {
@@ -57,7 +58,6 @@ public class Catalogo {
         return false;
     }
 
-
     public boolean pesquisarProduto(int codigoParaExcluir) {
         for (int i = 0; i < listaProdutos.size(); i++) {
             aux = listaProdutos.get(i);
@@ -68,15 +68,6 @@ public class Catalogo {
             }
         }
         return false;
-    }
-
-    public void mostrarProduto() {
-
-        for (int i = 0; i < listaProdutos.size(); i++) {
-            aux = listaProdutos.get(i);
-            System.out.println("Produto: " + aux.getNomeProduto() + "\n"
-                    + "Preço: " + aux.getPrecoProduto() + "\n" + "Categoria: " + aux.getCategoria());
-        }
     }
 
     public boolean verificaCodigo(int codigo) {
