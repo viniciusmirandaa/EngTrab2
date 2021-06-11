@@ -90,7 +90,5 @@ public class MainAdmin {
         else {
             System.out.println("O nome de usuario e senha estão incorretos.");
         }
-
-        c.mostrarProduto();
     }
 }
