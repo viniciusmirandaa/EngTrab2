@@ -1,4 +1,6 @@
 package MercadoOnline;
 
-public class Principal {
+public class MainUser {
+
+
 }
