@@ -82,7 +82,7 @@ public class Catalogo {
     public boolean verificaCodigo(int codigo){
         for(int i = 0; i < listaProdutos.size(); i++){
             aux = listaProdutos.get(i);
-            if(aux.getCodigoProduto() == (codigo)){
+            if(aux.getCodigoProduto() == codigo){
                 return true;
             }
         }

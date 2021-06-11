@@ -33,14 +33,10 @@ public class MainAdmin {
                     String categoria = JOptionPane.showInputDialog("Insira a categoria do produto: ");
                     String codigoDeBarras = JOptionPane.showInputDialog("Insira o código de barras do produto: ");
                     int codigo = Integer.parseInt(codigoDeBarras);
-//                    do{
-//                        if(c.verificaCodigo(codigo)){
-//                            codigoDeBarras = JOptionPane.showInputDialog("Redigite o código de barras do produto: ");
-//                            codigo = Integer.parseInt(codigoDeBarras);
-//                        }else{
-//                            loop2 = false;
-//                        }
-//                    }while(loop2);
+                        while(c.verificaCodigo(codigo)) {
+                            codigoDeBarras = JOptionPane.showInputDialog("Redigite o código de barras do produto: ");
+                            codigo = Integer.parseInt(codigoDeBarras);
+                        }
                         p = new Produto(nome, preco, categoria, codigo);
                         c.cadastrarProduto(p);
                     break;
