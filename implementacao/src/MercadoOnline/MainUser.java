@@ -6,8 +6,7 @@ public class MainUser {
         Cliente usuario = new Cliente();
         CatalogoCliente catalogoCliente = new CatalogoCliente();
         boolean result = usuario.cadastro();
-        System.out.println(result);
-        catalogoCliente.mostrarProduto();
+//        catalogoCliente.mostrarProduto();
 
     }
 
