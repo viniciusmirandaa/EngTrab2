@@ -5,14 +5,17 @@ import java.util.ArrayList;
 
 public class CatalogoCliente {
 
+//    Produto aux;
+    public ArrayList<Produto> listaProdutos = new ArrayList<>();
+    Catalogo c = new Catalogo();
+
+    public void auxLista(Produto p){
+        listaProdutos.add(p);
+    }
+
     public void mostrarProduto() {
-
-        Produto aux;
-        Catalogo c = new Catalogo();
         int i = 0;
-
         System.out.println(c.listaProdutos.size());
-
 //        do {
 //            JOptionPane.showMessageDialog(null, "Para comprar um produto digite sim ou SIM \n" + "Para não comprar digite não ou NÃO" + "\n" + "Para parar de comprar digite Sair.");
 //            for (int x = 0; x < c.listaProdutos.size(); x++) {
