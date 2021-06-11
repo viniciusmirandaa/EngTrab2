@@ -9,7 +9,6 @@ public class MainAdmin {
         Catalogo c = new Catalogo();
         boolean loop = true;
         Produto p;
-        int i = 0;
 
         String usuario = JOptionPane.showInputDialog("Defina o nome de administrador: ");
         String senha = JOptionPane.showInputDialog("Defina a senha do administrador: ");
@@ -18,7 +17,6 @@ public class MainAdmin {
         while (!usuario.equals(adm.getNomeUsuario()) || !senha.equals(adm.getSenha())) {
             usuario = JOptionPane.showInputDialog("Redefina o nome de administrador: ");
             senha = JOptionPane.showInputDialog("Redefina a senha do administrador: ");
-            i++;
         }
         if (usuario.equals(adm.getNomeUsuario()) || senha.equals(adm.getSenha()))
             do {
@@ -68,11 +66,13 @@ public class MainAdmin {
                             case "2":
                                 precoProduto = JOptionPane.showInputDialog("Insira o preço do produto: (ex. 7.50)");
                                 preco = Double.parseDouble(precoProduto);
+                                c.alterarProduto(codigoAlterar, preco);
                                 break;
                             case "3":
                                 nome = JOptionPane.showInputDialog("Insira o nome do produto: ");
                                 precoProduto = JOptionPane.showInputDialog("Insira o preço do produto: (ex. 7.50)");
                                 preco = Double.parseDouble(precoProduto);
+                                c.alterarProduto(codigoAlterar, nome, preco);
                                 break;
                         }
                         break;

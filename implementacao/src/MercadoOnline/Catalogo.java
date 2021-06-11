@@ -26,7 +26,7 @@ public class Catalogo {
     public boolean alterarProduto(int codigo, String nome) {
         for (int i = 0; i < listaProdutos.size(); i++) {
             aux = listaProdutos.get(i);
-            if (aux.getNomeProduto().equals(nome)) {
+            if (aux.getCodigoProduto() == codigo) {
                 aux.setNomeProduto(nome);
                 return true;
             }
@@ -37,7 +37,7 @@ public class Catalogo {
     public boolean alterarProduto(int codigo, String nome, double preco) {
         for (int i = 0; i < listaProdutos.size(); i++) {
             aux = listaProdutos.get(i);
-            if (aux.getNomeProduto().equals(nome) || aux.getPrecoProduto() == preco) {
+            if (aux.getCodigoProduto() == codigo) {
                 aux.setNomeProduto(nome);
                 aux.setPrecoProduto(preco);
                 return true;
@@ -49,7 +49,7 @@ public class Catalogo {
     public boolean alterarProduto(int codigo, double preco) {
         for (int i = 0; i < listaProdutos.size(); i++) {
             aux = listaProdutos.get(i);
-            if (aux.getPrecoProduto() == preco) {
+            if (aux.getCodigoProduto() == codigo) {
                 aux.setPrecoProduto(preco);
                 return true;
             }
@@ -79,10 +79,10 @@ public class Catalogo {
         }
     }
 
-    public boolean verificaCodigo(int codigo){
-        for(int i = 0; i < listaProdutos.size(); i++){
+    public boolean verificaCodigo(int codigo) {
+        for (int i = 0; i < listaProdutos.size(); i++) {
             aux = listaProdutos.get(i);
-            if(aux.getCodigoProduto() == codigo){
+            if (aux.getCodigoProduto() == codigo) {
                 return true;
             }
         }
