@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.util.ArrayList;
 
 public class Catalogo {
-    public ArrayList<Produto> listaProdutos = new ArrayList<>();
+    public ArrayList<Produto> listaProdutos = new ArrayList<Produto>();
     Produto aux;
 
     public void cadastrarProduto(Produto p) {
@@ -26,7 +26,7 @@ public class Catalogo {
     public boolean alterarProduto(int codigo, String nome) {
         for (int i = 0; i < listaProdutos.size(); i++) {
             aux = listaProdutos.get(i);
-            if (aux.getNomeProduto().equals(nome)) {
+            if (aux.getCodigoProduto() == codigo) {
                 aux.setNomeProduto(nome);
                 return true;
             }
@@ -37,7 +37,7 @@ public class Catalogo {
     public boolean alterarProduto(int codigo, String nome, double preco) {
         for (int i = 0; i < listaProdutos.size(); i++) {
             aux = listaProdutos.get(i);
-            if (aux.getNomeProduto().equals(nome) || aux.getPrecoProduto() == preco) {
+            if (aux.getCodigoProduto() == codigo) {
                 aux.setNomeProduto(nome);
                 aux.setPrecoProduto(preco);
                 return true;
@@ -49,7 +49,7 @@ public class Catalogo {
     public boolean alterarProduto(int codigo, double preco) {
         for (int i = 0; i < listaProdutos.size(); i++) {
             aux = listaProdutos.get(i);
-            if (aux.getPrecoProduto() == preco) {
+            if (aux.getCodigoProduto() == codigo) {
                 aux.setPrecoProduto(preco);
                 return true;
             }
