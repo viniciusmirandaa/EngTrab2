@@ -33,11 +33,32 @@ public class Cliente {
 
     private String infoCartao;
 
-    public boolean cadastro(){
+    public void cadastro(){
         nomeCliente = JOptionPane.showInputDialog(null, "Insira o seu nome: ");
         endereco = JOptionPane.showInputDialog(null, "Insira o seu endereço: ");
         cpf = JOptionPane.showInputDialog(null, "Insira o seu CPF: ");
+
+    }
+
+    public boolean informarCartao(){
         infoCartao = JOptionPane.showInputDialog(null, "Insira a informação do seu cartão: (ex. 1234 1234 1234)");
+        vetCartao = infoCartao.split(" ");
+        for(String vet : vetCartao){
+            auxVetCartao = vet.split("");
+            if(auxVetCartao.length == 4){
+                auxVetCartao = new String[0];
+                i++;
+            }
+        }
+        if(i == 3){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public boolean informaCartao(String cartao){
+        infoCartao = cartao;
         vetCartao = infoCartao.split(" ");
         for(String vet : vetCartao){
             auxVetCartao = vet.split("");
