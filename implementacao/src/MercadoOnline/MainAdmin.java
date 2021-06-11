@@ -13,7 +13,6 @@ public class MainAdmin {
         String usuario = JOptionPane.showInputDialog("Defina o nome de administrador: ");
         String senha = JOptionPane.showInputDialog("Defina a senha do administrador: ");
 
-
         while (!usuario.equals(adm.getNomeUsuario()) || !senha.equals(adm.getSenha())) {
             usuario = JOptionPane.showInputDialog("Redefina o nome de administrador: ");
             senha = JOptionPane.showInputDialog("Redefina a senha do administrador: ");
@@ -85,7 +84,6 @@ public class MainAdmin {
                         loop = false;
                         break;
                 }
-
             } while (loop);
         else {
             System.out.println("O nome de usuario e senha estão incorretos.");
