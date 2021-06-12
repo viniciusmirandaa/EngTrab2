@@ -2,10 +2,12 @@ package MercadoOnline;
 
 import javax.swing.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Catalogo {
     public ArrayList<Produto> listaProdutos = new ArrayList<>();
     public ArrayList<Produto> listaProdComprados = new ArrayList<>();
+    HashMap<Produto, Integer> produtosComprados = new HashMap<>();
     Produto aux;
 
     public void cadastrarProduto(Produto p) {
@@ -80,10 +82,10 @@ public class Catalogo {
         return false;
     }
 
-    public ArrayList<Produto> mostrarProduto() {
+    public HashMap<Produto, Integer> mostrarProduto() {
         int i = 0;
         do {
-            JOptionPane.showMessageDialog(null, "Para comprar um produto digite sim ou SIM \n" + "Para não comprar digite não ou NÃO" + "\n" + "Para parar de comprar digite Sair.");
+            JOptionPane.showMessageDialog(null, "Para comprar um produto digite Sim \n" + "Para não comprar digite Não" + "\n" + "Para parar de comprar digite Sair.");
             for (int x = 0; x < listaProdutos.size(); x++) {
                 aux = listaProdutos.get(x);
                 String respostaMenu = JOptionPane.showInputDialog("Produto: " + aux.getNomeProduto() + "\n" + "Preço: " + aux.getPrecoProduto());
@@ -91,18 +93,22 @@ public class Catalogo {
                     case "sim":
                     case "SIM":
                     case "Sim":
-                        listaProdComprados.add(aux);
+                    case "s":
+                        String quantFrase = JOptionPane.showInputDialog("Insira a quantidade que deseja do produto");
+                        int quantidade = Integer.parseInt(quantFrase);
+                        produtosComprados.put(aux, quantidade);
                         break;
                     case "não":
                     case "NÃO":
                     case "Não":
+                    case "n":
                         break;
                     case "Sair":
-                        return listaProdComprados;
+                        return produtosComprados;
                 }
                 i++;
             }
         } while (i < listaProdutos.size());
-        return listaProdComprados;
+        return produtosComprados;
     }
 }
