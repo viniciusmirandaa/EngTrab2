@@ -5,6 +5,7 @@ import javax.swing.*;
 public class Pagamento {
     CarrinhoDeCompras c = new CarrinhoDeCompras();
 
+
     public String gerarComprovanteDeVenda(Cliente cliente){
         JOptionPane.showMessageDialog(null, "Nome: " + cliente.getNomeCliente());
         JOptionPane.showMessageDialog(null, "Endereço: " + cliente.getEndereco());
