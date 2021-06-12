@@ -9,10 +9,9 @@ public class MainUser {
     public static void main(String[] args) {
         int i = 0;
         Cliente usuario = new Cliente();
-        CatalogoCliente catalogoCliente = new CatalogoCliente();
+        Catalogo c = new Catalogo();
         usuario.cadastro();
-        catalogoCliente.mostrarProduto();
-
+        c.mostrarProduto();
 
         boolean result = usuario.informarCartao();
         while(i <= 2) {
@@ -22,9 +21,6 @@ public class MainUser {
             }
             i++;
         }
-
-        MainAdminTest test = new MainAdminTest();
-
     }
 
 
