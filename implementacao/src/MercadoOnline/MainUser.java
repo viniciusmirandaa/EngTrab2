@@ -8,11 +8,17 @@ public class MainUser {
 
     public static void main(String[] args) {
         int i = 0;
+        HashMap<Produto, Integer> retornoMenu;
         Cliente usuario = new Cliente();
         Catalogo catalogo = new Catalogo();
+        CarrinhoDeCompras carrinho = new CarrinhoDeCompras();
 
         usuario.cadastro();
-        catalogo.mostrarProduto();
+
+        retornoMenu = catalogo.mostrarProduto();
+        for (Produto p : retornoMenu.keySet()) {
+            carrinho.adicionarProdutos(p, retornoMenu.get(p));
+        }
 
         boolean result = usuario.informarCartao();
         while (i <= 2) {
