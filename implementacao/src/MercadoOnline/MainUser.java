@@ -9,12 +9,9 @@ public class MainUser {
         int i = 0;
         Cliente usuario = new Cliente();
         Catalogo catalogo = new Catalogo();
-        CatalogoCliente cl = new CatalogoCliente();
 
-        
         usuario.cadastro();
-
-
+        catalogo.mostrarProduto();
 
         boolean result = usuario.informarCartao();
         while (i <= 2) {
@@ -25,6 +22,4 @@ public class MainUser {
             i++;
         }
     }
-
-
 }
