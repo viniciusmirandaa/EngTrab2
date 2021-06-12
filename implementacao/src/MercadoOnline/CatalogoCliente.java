@@ -4,7 +4,6 @@ import javax.swing.*;
 import java.util.ArrayList;
 
 public class CatalogoCliente {
-    Catalogo catalogo = new Catalogo();
     public ArrayList<Produto> listaProdComprados = new ArrayList<>();
     public ArrayList<Produto> listaProd = new ArrayList<>();
     Produto aux;
