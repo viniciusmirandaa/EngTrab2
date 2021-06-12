@@ -80,4 +80,12 @@ public class Catalogo {
         }
         return false;
     }
+
+    public int getQuantidade(){
+        int i = 0;
+        for(Produto p : listaProdutos){
+            i++;
+        }
+        return i;
+    }
 }
