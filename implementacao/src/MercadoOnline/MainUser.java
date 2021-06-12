@@ -1,6 +1,6 @@
 package MercadoOnline;
 
-import sun.applet.Main;
+
 
 import javax.swing.*;
 
@@ -12,6 +12,11 @@ public class MainUser {
         Catalogo c = new Catalogo();
         usuario.cadastro();
         c.mostrarProduto();
+        usuario.cadastro();
+        Catalogo catalogo = new Catalogo();
+        catalogo.mostrarProduto();
+
+
 
         boolean result = usuario.informarCartao();
         while(i <= 2) {
@@ -21,6 +26,10 @@ public class MainUser {
             }
             i++;
         }
+
+
+
+        
     }
 
 
