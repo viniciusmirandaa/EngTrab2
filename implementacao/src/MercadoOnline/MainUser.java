@@ -1,6 +1,6 @@
 package MercadoOnline;
 
-import sun.applet.Main;
+
 
 import javax.swing.*;
 
@@ -9,9 +9,9 @@ public class MainUser {
     public static void main(String[] args) {
         int i = 0;
         Cliente usuario = new Cliente();
-        CatalogoCliente catalogoCliente = new CatalogoCliente();
         usuario.cadastro();
-        catalogoCliente.mostrarProduto();
+        Catalogo catalogo = new Catalogo();
+        catalogo.mostrarProduto();
 
 
         boolean result = usuario.informarCartao();
@@ -23,7 +23,7 @@ public class MainUser {
             i++;
         }
 
-        MainAdminTest test = new MainAdminTest();
+
 
     }
 

@@ -5,12 +5,14 @@ import java.util.ArrayList;
 
 public class Catalogo {
     public ArrayList<Produto> listaProdutos = new ArrayList<>();
-    CatalogoCliente cl = new CatalogoCliente();
+    public ArrayList<Produto> listaProdComprados = new ArrayList<>();
+
     Produto aux;
+
 
     public void cadastrarProduto(Produto p) {
         listaProdutos.add(p);
-        cl.auxLista(p);
+
     }
 
     public boolean excluirProduto(int codigoParaExcluir) {
@@ -81,11 +83,30 @@ public class Catalogo {
         return false;
     }
 
-    public int getQuantidade(){
+    public ArrayList<Produto> mostrarProduto() {
         int i = 0;
-        for(Produto p : listaProdutos){
-            i++;
-        }
-        return i;
+        do {
+            JOptionPane.showMessageDialog(null, "Para comprar um produto digite sim ou SIM \n" + "Para não comprar digite não ou NÃO" + "\n" + "Para parar de comprar digite Sair.");
+            for (int x = 0; x < listaProdutos.size(); x++) {
+                aux = listaProdutos.get(x);
+                String respostaMenu = JOptionPane.showInputDialog("Produto: " + aux.getNomeProduto() + "\n" + "Preço: " + aux.getPrecoProduto());
+                switch (respostaMenu) {
+                    case "sim":
+                    case "SIM":
+                    case "Sim":
+                        listaProdComprados.add(aux);
+                        break;
+                    case "não":
+                    case "NÃO":
+                    case "Não":
+                        break;
+                    case "Sair":
+                        return listaProdComprados;
+                }
+                i++;
+            }
+        } while (i < listaProdutos.size());
+        return listaProdComprados;
     }
+
 }
