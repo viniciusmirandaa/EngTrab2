@@ -5,11 +5,12 @@ import java.util.ArrayList;
 
 public class Catalogo {
     public ArrayList<Produto> listaProdutos = new ArrayList<>();
+    CatalogoCliente c = new CatalogoCliente();
     Produto aux;
-
 
     public void cadastrarProduto(Produto p) {
         listaProdutos.add(p);
+        c.auxListaProd(p);
     }
 
     public boolean excluirProduto(int codigoParaExcluir) {
