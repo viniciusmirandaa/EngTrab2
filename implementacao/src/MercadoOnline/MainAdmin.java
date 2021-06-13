@@ -3,7 +3,6 @@ package MercadoOnline;
 import javax.swing.*;
 
 public class MainAdmin {
-
     public static void main(String[] args) {
         Administrador adm = new Administrador("admin", "admin123");
         Catalogo c = new Catalogo();

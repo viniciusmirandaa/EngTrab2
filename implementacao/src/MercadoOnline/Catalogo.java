@@ -5,8 +5,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Catalogo {
-    public ArrayList<Produto> listaProdutos = new ArrayList<>();
-    public ArrayList<Produto> listaProdComprados = new ArrayList<>();
+    public static ArrayList<Produto> listaProdutos = new ArrayList<>();
     HashMap<Produto, Integer> produtosComprados = new HashMap<>();
     Produto aux;
 
