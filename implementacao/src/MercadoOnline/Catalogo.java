@@ -89,21 +89,18 @@ public class Catalogo {
             for (int x = 0; x < listaProdutos.size(); x++) {
                 aux = listaProdutos.get(x);
                 String respostaMenu = JOptionPane.showInputDialog("Produto: " + aux.getNomeProduto() + "\n" + "Preço: " + aux.getPrecoProduto());
-                switch (respostaMenu) {
-                    case "sim":
-                    case "SIM":
-                    case "Sim":
-                    case "s":
+                switch (respostaMenu.charAt(2)) {
+                    case 'm':
+                    case 'M':
                         String quantFrase = JOptionPane.showInputDialog("Insira a quantidade que deseja do produto");
                         int quantidade = Integer.parseInt(quantFrase);
                         produtosComprados.put(aux, quantidade);
                         break;
-                    case "não":
-                    case "NÃO":
-                    case "Não":
-                    case "n":
+                    case 'O':
+                    case 'o':
                         break;
-                    case "Sair":
+                    case 'I':
+                    case 'i':
                         return produtosComprados;
                 }
                 i++;

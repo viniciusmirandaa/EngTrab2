@@ -3,24 +3,23 @@ package MercadoOnline;
 import javax.swing.*;
 
 public class Pagamento {
-    CarrinhoDeCompras c = new CarrinhoDeCompras();
+    String comprovante = "";
 
-
-    public void gerarComprovanteDeVenda(Cliente cliente) {
-        JOptionPane.showMessageDialog(null, "Nome: " + cliente.getNomeCliente());
-        JOptionPane.showMessageDialog(null, "Endereço: " + cliente.getEndereco());
-        JOptionPane.showMessageDialog(null, "CPF: " + cliente.getCpf());
-        JOptionPane.showMessageDialog(null, "Itens comprados: ");
-        for (Produto p : c.produtosCarrinho.keySet()) {
-            JOptionPane.showMessageDialog(null, "Nome: " + p.getNomeProduto() + "\nPreço: " + p.getPrecoProduto());
+    private void gerarComprovanteDeVenda(Cliente cliente, CarrinhoDeCompras carrinho) {
+        for (Produto p : carrinho.produtosCarrinho.keySet()) {
+            String preco = String.valueOf(p.getPrecoProduto());
+            comprovante += "Nome: " + p.getNomeProduto() + "Preço: " + preco + "\n";
         }
+        JOptionPane.showMessageDialog(null, " Nome: " + cliente.getNomeCliente() + "\n Endereço: "
+                + cliente.getEndereco() + "\n CPF: " + cliente.getCpf() + "\n Itens comprados: " + comprovante);
+
     }
 
-    public boolean finalizarCompra(boolean resultInfo, Cliente c) {
+    public boolean finalizarCompra(boolean resultInfo, Cliente c, CarrinhoDeCompras carrinhoDeCompras) {
         if (!resultInfo) {
             return false;
         } else {
-            gerarComprovanteDeVenda(c);
+            gerarComprovanteDeVenda(c, carrinhoDeCompras);
             return true;
         }
     }
