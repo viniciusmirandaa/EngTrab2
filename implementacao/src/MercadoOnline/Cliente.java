@@ -51,8 +51,12 @@ public class Cliente {
             }
         }
         if(i == 3){
+            vetCartao = new String[0];
+            i = 0;
             return true;
         }else{
+            vetCartao = new String[0];
+            i = 0;
             return false;
         }
     }
@@ -68,8 +72,11 @@ public class Cliente {
             }
         }
         if(i == 3){
+            vetCartao = new String[0];
             return true;
         }else{
+            vetCartao = new String[0];
+            i = 0;
             return false;
         }
     }

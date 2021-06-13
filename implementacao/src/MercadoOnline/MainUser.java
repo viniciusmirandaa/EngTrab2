@@ -73,7 +73,7 @@ public class MainUser {
         while (i <= 2) {
             if (!result) {
                 String infCart = JOptionPane.showInputDialog("Redigite o número do cartão, de forma que seja válido: \n" + "Você tem " + (3 - i) + " tentativas.");
-                usuario.informaCartao(infCart);
+                result = usuario.informaCartao(infCart);
             }
             i++;
         }

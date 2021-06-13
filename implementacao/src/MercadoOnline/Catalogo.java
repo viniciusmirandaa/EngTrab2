@@ -10,6 +10,7 @@ public class Catalogo {
     HashMap<Produto, Integer> produtosComprados = new HashMap<>();
     Produto aux;
 
+
     public void cadastrarProduto(Produto p) {
         listaProdutos.add(p);
     }
@@ -89,18 +90,25 @@ public class Catalogo {
             for (int x = 0; x < listaProdutos.size(); x++) {
                 aux = listaProdutos.get(x);
                 String respostaMenu = JOptionPane.showInputDialog("Produto: " + aux.getNomeProduto() + "\n" + "Preço: " + aux.getPrecoProduto());
-                switch (respostaMenu.charAt(2)) {
-                    case 'm':
-                    case 'M':
+                switch (respostaMenu) {
+                    case "Sim":
+                    case "s":
+                    case "S":
+                    case "sim":
+                    case "SIM":
                         String quantFrase = JOptionPane.showInputDialog("Insira a quantidade que deseja do produto");
                         int quantidade = Integer.parseInt(quantFrase);
                         produtosComprados.put(aux, quantidade);
                         break;
-                    case 'O':
-                    case 'o':
+                    case "Não":
+                    case "n":
+                    case "N":
+                    case "não":
+                    case "nao":
+                    case "NAO":
                         break;
-                    case 'I':
-                    case 'i':
+                    case "SAIR":
+                    case "Sair":
                         return produtosComprados;
                 }
                 i++;
