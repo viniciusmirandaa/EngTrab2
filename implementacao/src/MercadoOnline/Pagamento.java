@@ -8,11 +8,12 @@ public class Pagamento {
     private void gerarComprovanteDeVenda(Cliente cliente, CarrinhoDeCompras carrinho) {
         for (Produto p : carrinho.produtosCarrinho.keySet()) {
             String preco = String.valueOf(p.getPrecoProduto());
-            comprovante += "Nome: " + p.getNomeProduto() + "  Preço: " + preco + "\n";
+            comprovante += "Nome: " + p.getNomeProduto() + "  Preço: " + preco + "  Quantidade: " + carrinho.produtosCarrinho.get(p) + "\n";
         }
-        JOptionPane.showMessageDialog(null, " Nome: " + cliente.getNomeCliente() + "\n Endereço: "
-                + cliente.getEndereco() + "\n CPF: " + cliente.getCpf() + "\n Itens comprados: \n" + comprovante);
-
+        JOptionPane.showMessageDialog(null, "Comprovante de venda");
+        JOptionPane.showMessageDialog(null, "Nome: " + cliente.getNomeCliente() + "\nEndereço: "
+                + cliente.getEndereco() + "\nCPF: " + cliente.getCpf() + "\nItens comprados: \n" + comprovante);
+        JOptionPane.showMessageDialog(null, "Preço total do carrinho: " + carrinho.valorTotalCarrinho());
     }
 
     public boolean finalizarCompra(boolean resultInfo, Cliente c, CarrinhoDeCompras carrinhoDeCompras) {

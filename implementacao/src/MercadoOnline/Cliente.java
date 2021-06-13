@@ -23,14 +23,6 @@ public class Cliente {
         return cpf;
     }
 
-    public String getInfoCartao() {
-        return infoCartao;
-    }
-
-    public void setInfoCartao(String infoCartao) {
-        this.infoCartao = infoCartao;
-    }
-
     private String infoCartao;
 
     public void cadastro(){
