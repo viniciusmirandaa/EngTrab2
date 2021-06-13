@@ -16,44 +16,44 @@ public class MainUser {
         Pagamento pagamento = new Pagamento();
         usuario.cadastro();
 
-        String nome = JOptionPane.showInputDialog("Insira o nome do produto: ");
-        String precoProduto = JOptionPane.showInputDialog("Insira o preço do produto: (ex. 7.50)");
-        double preco = Double.parseDouble(precoProduto);
-        String categoria = JOptionPane.showInputDialog("Insira a categoria do produto: ");
-        String codigoDeBarras = JOptionPane.showInputDialog("Insira o código de barras do produto: ");
-        int codigo = Integer.parseInt(codigoDeBarras);
-        while (catalogo.verificaCodigo(codigo)) {
-            codigoDeBarras = JOptionPane.showInputDialog("Redigite o código de barras do produto: ");
-            codigo = Integer.parseInt(codigoDeBarras);
-        }
-        Produto p = new Produto(nome, preco, categoria, codigo);
-        catalogo.cadastrarProduto(p);
-
-        nome = JOptionPane.showInputDialog("Insira o nome do produto: ");
-        precoProduto = JOptionPane.showInputDialog("Insira o preço do produto: (ex. 7.50)");
-        preco = Double.parseDouble(precoProduto);
-        categoria = JOptionPane.showInputDialog("Insira a categoria do produto: ");
-        codigoDeBarras = JOptionPane.showInputDialog("Insira o código de barras do produto: ");
-        codigo = Integer.parseInt(codigoDeBarras);
-        while (catalogo.verificaCodigo(codigo)) {
-            codigoDeBarras = JOptionPane.showInputDialog("Redigite o código de barras do produto: ");
-            codigo = Integer.parseInt(codigoDeBarras);
-        }
-        Produto p2 = new Produto(nome, preco, categoria, codigo);
-        catalogo.cadastrarProduto(p2);
-
-        nome = JOptionPane.showInputDialog("Insira o nome do produto: ");
-        precoProduto = JOptionPane.showInputDialog("Insira o preço do produto: (ex. 7.50)");
-        preco = Double.parseDouble(precoProduto);
-        categoria = JOptionPane.showInputDialog("Insira a categoria do produto: ");
-        codigoDeBarras = JOptionPane.showInputDialog("Insira o código de barras do produto: ");
-        codigo = Integer.parseInt(codigoDeBarras);
-        while (catalogo.verificaCodigo(codigo)) {
-            codigoDeBarras = JOptionPane.showInputDialog("Redigite o código de barras do produto: ");
-            codigo = Integer.parseInt(codigoDeBarras);
-        }
-        Produto p3 = new Produto(nome, preco, categoria, codigo);
-        catalogo.cadastrarProduto(p3);
+//        String nome = JOptionPane.showInputDialog("Insira o nome do produto: ");
+//        String precoProduto = JOptionPane.showInputDialog("Insira o preço do produto: (ex. 7.50)");
+//        double preco = Double.parseDouble(precoProduto);
+//        String categoria = JOptionPane.showInputDialog("Insira a categoria do produto: ");
+//        String codigoDeBarras = JOptionPane.showInputDialog("Insira o código de barras do produto: ");
+//        int codigo = Integer.parseInt(codigoDeBarras);
+//        while (catalogo.verificaCodigo(codigo)) {
+//            codigoDeBarras = JOptionPane.showInputDialog("Redigite o código de barras do produto: ");
+//            codigo = Integer.parseInt(codigoDeBarras);
+//        }
+//        Produto p = new Produto(nome, preco, categoria, codigo);
+//        catalogo.cadastrarProduto(p);
+//
+//        nome = JOptionPane.showInputDialog("Insira o nome do produto: ");
+//        precoProduto = JOptionPane.showInputDialog("Insira o preço do produto: (ex. 7.50)");
+//        preco = Double.parseDouble(precoProduto);
+//        categoria = JOptionPane.showInputDialog("Insira a categoria do produto: ");
+//        codigoDeBarras = JOptionPane.showInputDialog("Insira o código de barras do produto: ");
+//        codigo = Integer.parseInt(codigoDeBarras);
+//        while (catalogo.verificaCodigo(codigo)) {
+//            codigoDeBarras = JOptionPane.showInputDialog("Redigite o código de barras do produto: ");
+//            codigo = Integer.parseInt(codigoDeBarras);
+//        }
+//        Produto p2 = new Produto(nome, preco, categoria, codigo);
+//        catalogo.cadastrarProduto(p2);
+//
+//        nome = JOptionPane.showInputDialog("Insira o nome do produto: ");
+//        precoProduto = JOptionPane.showInputDialog("Insira o preço do produto: (ex. 7.50)");
+//        preco = Double.parseDouble(precoProduto);
+//        categoria = JOptionPane.showInputDialog("Insira a categoria do produto: ");
+//        codigoDeBarras = JOptionPane.showInputDialog("Insira o código de barras do produto: ");
+//        codigo = Integer.parseInt(codigoDeBarras);
+//        while (catalogo.verificaCodigo(codigo)) {
+//            codigoDeBarras = JOptionPane.showInputDialog("Redigite o código de barras do produto: ");
+//            codigo = Integer.parseInt(codigoDeBarras);
+//        }
+//        Produto p3 = new Produto(nome, preco, categoria, codigo);
+//        catalogo.cadastrarProduto(p3);
 
         retornoMenu = catalogo.mostrarProduto();
         for (Produto produto : retornoMenu.keySet()) {

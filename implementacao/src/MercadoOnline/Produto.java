@@ -1,12 +1,42 @@
 package MercadoOnline;
 
+import javax.swing.*;
+
 public class Produto {
     private String nomeProduto;
     private double precoProduto;
-    private String categoria;
+    private Categoria categoria;
     private int codigoProduto;
 
-    public Produto(String nomeProduto, double precoProduto, String categoria, int codigoProduto) {
+    public enum Categoria {
+        Refrigerante, Salgadinho, Chocolate, Leite, Vazio;
+
+    }
+
+    public static Categoria escolheOpcao(String opcao) {
+        Categoria categoria;
+        if (!opcao.equals(Categoria.Refrigerante.name()) && !opcao.equals(Categoria.Salgadinho.name())
+                && !opcao.equals(Categoria.Chocolate.name()) && !opcao.equals(Categoria.Leite.name())) {
+            categoria = Categoria.Vazio;
+            return categoria;
+        } else if (opcao.equals(Categoria.Refrigerante.name())) {
+            categoria = Categoria.Refrigerante;
+            return categoria;
+        } else if (opcao.equals(Categoria.Salgadinho.name())) {
+            categoria = Categoria.Salgadinho;
+            return categoria;
+        } else if (opcao.equals(Categoria.Chocolate.name())) {
+            categoria = Categoria.Chocolate;
+            return categoria;
+        } else if (opcao.equals(Categoria.Leite.name())) {
+            categoria = Categoria.Leite;
+            return categoria;
+        }
+        categoria = Categoria.Vazio;
+        return categoria;
+    }
+
+    public Produto(String nomeProduto, double precoProduto, Categoria categoria, int codigoProduto) {
         this.nomeProduto = nomeProduto;
         this.precoProduto = precoProduto;
         this.categoria = categoria;
@@ -29,11 +59,11 @@ public class Produto {
         this.precoProduto = precoProduto;
     }
 
-    public String getCategoria() {
+    public Categoria getCategoria() {
         return categoria;
     }
 
-    public void setCategoria(String categoria) {
+    public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
     }
 

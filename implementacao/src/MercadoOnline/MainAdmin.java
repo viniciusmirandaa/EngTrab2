@@ -8,6 +8,9 @@ public class MainAdmin {
         Catalogo c = new Catalogo();
         boolean loop = true;
         Produto p;
+        Produto.Categoria retornoCategoria;
+
+
 
         String usuario = JOptionPane.showInputDialog("Defina o nome de administrador: ");
         String senha = JOptionPane.showInputDialog("Defina a senha do administrador: ");
@@ -29,13 +32,19 @@ public class MainAdmin {
                         String precoProduto = JOptionPane.showInputDialog("Insira o preço do produto: (ex. 7.50)");
                         double preco = Double.parseDouble(precoProduto);
                         String categoria = JOptionPane.showInputDialog("Insira a categoria do produto: ");
+                        retornoCategoria = Produto.escolheOpcao(categoria);
+                        while(retornoCategoria.name().equals(Produto.Categoria.Vazio.name())){
+                            categoria = JOptionPane.showInputDialog("Coloque uma categoria de produtos válida, de forma que seja alguma dessas opções: \n"
+                                    + Produto.Categoria.Chocolate + "\n" + Produto.Categoria.Leite + "\n" + Produto.Categoria.Refrigerante + "\n" + Produto.Categoria.Salgadinho);
+                            retornoCategoria = Produto.escolheOpcao(categoria);
+                        }
                         String codigoDeBarras = JOptionPane.showInputDialog("Insira o código de barras do produto: ");
                         int codigo = Integer.parseInt(codigoDeBarras);
                         while (c.verificaCodigo(codigo)) {
                             codigoDeBarras = JOptionPane.showInputDialog("Redigite o código de barras do produto: ");
                             codigo = Integer.parseInt(codigoDeBarras);
                         }
-                        p = new Produto(nome, preco, categoria, codigo);
+                        p = new Produto(nome, preco, retornoCategoria, codigo);
                         c.cadastrarProduto(p);
                         break;
                     case 'E':
