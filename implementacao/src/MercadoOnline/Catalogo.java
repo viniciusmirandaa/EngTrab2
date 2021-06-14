@@ -9,8 +9,13 @@ public class Catalogo {
     Produto aux;
 
 
+    public void cadastrarProduto(Produto... p) {
+        for(Produto produto : p)
+            listaProdutos.add(produto);
+    }
+
     public void cadastrarProduto(Produto p) {
-        listaProdutos.add(p);
+            listaProdutos.add(p);
     }
 
     public boolean excluirProduto(int codigoParaExcluir) {

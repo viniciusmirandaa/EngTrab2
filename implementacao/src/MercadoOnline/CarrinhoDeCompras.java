@@ -5,7 +5,6 @@ import java.util.HashMap;
 
 public class CarrinhoDeCompras {
     public HashMap<Produto, Integer> produtosCarrinho = new HashMap<>();
-
     public static HashMap<Produto, Integer> produtosAnalise = new HashMap<>();
     private static double totalCompra;
     String mostrarCarrinho = "";

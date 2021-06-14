@@ -27,12 +27,11 @@ public class OtimizacaoProdutos {
             if (auxAnalise.get(produto) == vendeuMais) {
                 JOptionPane.showMessageDialog(null, "O produto " + produto.getNomeProduto() + " vendeu mais na categoria "
                         + produto.getCategoria());
-                auxAnalise = new HashMap<>();
             } else if (auxAnalise.get(produto) == vendeuMenos) {
                 JOptionPane.showMessageDialog(null, "O produto " + produto.getNomeProduto() + " vendeu menos na categoria "
                         + produto.getCategoria());
-                auxAnalise = new HashMap<>();
             }
         }
+        auxAnalise = new HashMap<>();
     }
 }
