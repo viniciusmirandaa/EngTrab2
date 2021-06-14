@@ -5,39 +5,11 @@ import java.util.HashMap;
 
 public class CarrinhoDeCompras {
     public HashMap<Produto, Integer> produtosCarrinho = new HashMap<>();
-    public HashMap<Produto, Integer> auxAnalise = new HashMap<>();
+
     public static HashMap<Produto, Integer> produtosAnalise = new HashMap<>();
     private static double totalCompra;
     String mostrarCarrinho = "";
-    int vendeuMais = 1;
-    int vendeuMenos = 1;
 
-    public void analiseProdutos(Produto.Categoria categoria) {
-        for (Produto produto : produtosAnalise.keySet()) {
-            if (produto.getCategoria().equals(categoria)) {
-                auxAnalise.put(produto, produtosAnalise.get(produto));
-            }
-        }
-
-        for (Produto produto : auxAnalise.keySet()) {
-            if (auxAnalise.get(produto) > vendeuMais)
-                vendeuMais = auxAnalise.get(produto);
-            else if (auxAnalise.get(produto) < vendeuMais)
-                vendeuMenos = auxAnalise.get(produto);
-        }
-
-        for (Produto produto : auxAnalise.keySet()) {
-            if (auxAnalise.get(produto) == vendeuMais) {
-                JOptionPane.showMessageDialog(null, "O produto " + produto.getNomeProduto() + " vendeu mais na categoria "
-                        + produto.getCategoria());
-                auxAnalise = new HashMap<>();
-            } else if (auxAnalise.get(produto) == vendeuMenos) {
-                JOptionPane.showMessageDialog(null, "O produto " + produto.getNomeProduto() + " vendeu menos na categoria "
-                        + produto.getCategoria());
-                auxAnalise = new HashMap<>();
-            }
-        }
-    }
 
     public boolean adicionarProdutos(Produto p, int quantidade) {
         if (produtosCarrinho.containsKey(p)) {

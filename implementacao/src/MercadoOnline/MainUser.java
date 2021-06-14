@@ -7,17 +7,21 @@ import java.util.HashMap;
 public class MainUser {
 
     public static void main(String[] args) {
-        int i = 0;
-        HashMap<Produto, Integer> retornoMenu;
+        //instanciando objetos
         Cliente usuario = new Cliente();
         Catalogo catalogo = new Catalogo();
         CarrinhoDeCompras carrinho = new CarrinhoDeCompras();
-        boolean loop = true;
         Pagamento pagamento = new Pagamento();
+        CatalogoCliente catalogoCliente = new CatalogoCliente();
+
+        //declarando variáveis auxiliares
+        boolean loop = true;
+        HashMap<Produto, Integer> retornoMenu;
+        int i = 0;
 
         usuario.cadastro();
 
-        retornoMenu = catalogo.mostrarProduto();
+        retornoMenu = catalogoCliente.mostrarProduto();
         for (Produto produto : retornoMenu.keySet()) {
             carrinho.adicionarProdutos(produto, retornoMenu.get(produto));
         }
