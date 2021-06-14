@@ -46,7 +46,7 @@ public class MainUser {
 
         carrinho.mostrarProdutosCarrinho();
 
-        boolean result = usuario.informarCartao();
+        boolean result = usuario.informaCartao();
         while (i <= 2) {
             if (!result) {
                 String infCart = JOptionPane.showInputDialog("Redigite o número do cartão, de forma que seja válido: \n" + "Você tem " + (3 - i) + " tentativas.");

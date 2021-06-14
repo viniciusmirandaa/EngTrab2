@@ -10,13 +10,13 @@ public class Produto {
 
     public enum Categoria {
         Refrigerante, Salgadinho, Chocolate, Leite, Vazio;
-
     }
 
     public static Categoria escolheOpcao(String opcao) {
         Categoria categoria;
         if (!opcao.equals(Categoria.Refrigerante.name()) && !opcao.equals(Categoria.Salgadinho.name())
-                && !opcao.equals(Categoria.Chocolate.name()) && !opcao.equals(Categoria.Leite.name())) {
+                && !opcao.equals(Categoria.Chocolate.name()) && !opcao.equals(Categoria.Leite.name()
+        )) {
             categoria = Categoria.Vazio;
             return categoria;
         } else if (opcao.equals(Categoria.Refrigerante.name())) {
@@ -28,7 +28,8 @@ public class Produto {
         } else if (opcao.equals(Categoria.Chocolate.name())) {
             categoria = Categoria.Chocolate;
             return categoria;
-        } else if (opcao.equals(Categoria.Leite.name())) {
+        }
+        else if (opcao.equals(Categoria.Leite.name())) {
             categoria = Categoria.Leite;
             return categoria;
         }

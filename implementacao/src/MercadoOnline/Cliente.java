@@ -6,10 +6,10 @@ public class Cliente {
     private String nomeCliente;
     private String endereco;
     private String cpf;
-
-    String []vetCartao;
-    String []auxVetCartao;
-    int i = 0;
+    private String infoCartao;
+    private String[] vetCartao;
+    private String[] auxVetCartao;
+    private int index = 0;
 
     public String getNomeCliente() {
         return nomeCliente;
@@ -23,52 +23,49 @@ public class Cliente {
         return cpf;
     }
 
-    private String infoCartao;
-
-    public void cadastro(){
+    public void cadastro() {
         nomeCliente = JOptionPane.showInputDialog(null, "Insira o seu nome: ");
         endereco = JOptionPane.showInputDialog(null, "Insira o seu endereço: ");
         cpf = JOptionPane.showInputDialog(null, "Insira o seu CPF: ");
-
     }
 
-    public boolean informarCartao(){
+    public boolean informaCartao() {
         infoCartao = JOptionPane.showInputDialog(null, "Insira a informação do seu cartão: (ex. 1234 1234 1234)");
         vetCartao = infoCartao.split(" ");
-        for(String vet : vetCartao){
+        for (String vet : vetCartao) {
             auxVetCartao = vet.split("");
-            if(auxVetCartao.length == 4){
+            if (auxVetCartao.length == 4) {
                 auxVetCartao = new String[0];
-                i++;
+                index++;
             }
         }
-        if(i == 3){
+        if (index == 3) {
             vetCartao = new String[0];
-            i = 0;
+            index = 0;
             return true;
-        }else{
+        } else {
             vetCartao = new String[0];
-            i = 0;
+            index = 0;
             return false;
         }
     }
 
-    public boolean informaCartao(String cartao){
+    public boolean informaCartao(String cartao) {
         infoCartao = cartao;
         vetCartao = infoCartao.split(" ");
-        for(String vet : vetCartao){
+        for (String vet : vetCartao) {
             auxVetCartao = vet.split("");
-            if(auxVetCartao.length == 4){
+            if (auxVetCartao.length == 4) {
                 auxVetCartao = new String[0];
-                i++;
+                index++;
             }
         }
-        if(i == 3){
+        if (index == 3) {
             vetCartao = new String[0];
             return true;
-        }else{
+        } else {
             vetCartao = new String[0];
-            i = 0;
+            index = 0;
             return false;
         }
     }

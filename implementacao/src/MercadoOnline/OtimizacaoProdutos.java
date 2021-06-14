@@ -6,10 +6,22 @@ import java.util.HashMap;
 public class OtimizacaoProdutos {
 
     public HashMap<Produto, Integer> auxAnalise = new HashMap<>();
-    int vendeuMais = 1;
-    int vendeuMenos = 1;
+
+
+    private Produto.Categoria categoria;
 
     public void analiseProdutos(Produto.Categoria categoria) {
+        String concVendeuMenos = "";
+        String concVendeuMenosUnidade = "";
+        String concVendeuMais = "";
+        String concVendeuMaisUnidade = "";
+        int quantMaior = 0;
+        int quantMenor = 0;
+        int vendeuMais = 1;
+        int vendeuMenos = 1;
+
+        this.categoria = categoria;
+
         for (Produto produto : CarrinhoDeCompras.produtosAnalise.keySet()) {
             if (produto.getCategoria().equals(categoria)) {
                 auxAnalise.put(produto, CarrinhoDeCompras.produtosAnalise.get(produto));
@@ -28,15 +40,26 @@ public class OtimizacaoProdutos {
             }
         }
 
-        for (Produto produto : auxAnalise.keySet()) {
-            if (auxAnalise.get(produto) == vendeuMais) {
-                JOptionPane.showMessageDialog(null, "O produto " + produto.getNomeProduto() + " vendeu mais na categoria "
-                        + produto.getCategoria() + " quantidade: " + auxAnalise.get(produto));
-            } else if (auxAnalise.get(produto) == vendeuMenos) {
-                JOptionPane.showMessageDialog(null, "O produto " + produto.getNomeProduto() + " vendeu menos na categoria "
-                        + produto.getCategoria() + " quantidade: " + auxAnalise.get(produto));
+        for (Produto prod : auxAnalise.keySet()) {
+            int auxVar1 = auxAnalise.get(prod);
+            if (auxVar1 == vendeuMais) {
+                quantMaior++;
+                concVendeuMais += prod.getNomeProduto() + ", ";
+                concVendeuMaisUnidade = prod.getNomeProduto();
+            }
+            if (auxVar1 == vendeuMenos) {
+                quantMenor++;
+                concVendeuMenos += prod.getNomeProduto() + ", ";
+                concVendeuMenosUnidade = prod.getNomeProduto();
             }
         }
+
+        JOptionPane.showMessageDialog(null, (quantMaior == 1 ? "O produto " + concVendeuMaisUnidade + " vendeu mais na categoria "
+                + this.categoria : "Os produtos que mais venderam na categoria: " + this.categoria + "\n foram: " + concVendeuMais));
+
+        JOptionPane.showMessageDialog(null, (quantMenor == 1 ? "O produto " + concVendeuMenosUnidade + " vendeu menos na categoria "
+                + this.categoria : "Os produtos que menos venderam na categoria: " + this.categoria + "\n foram: " + concVendeuMenos));
+
         auxAnalise = new HashMap<>();
     }
 }

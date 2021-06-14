@@ -42,7 +42,7 @@ class MainAdminTest {
             carrinhoDeCompras.adicionarProdutos(p, retornoMenu.get(p));
         }
 
-        boolean result = cliente.informarCartao();
+        boolean result = cliente.informaCartao();
         while (i <= 2) {
             if (!result) {
                 String infCart = JOptionPane.showInputDialog("Redigite o número do cartão, de forma que seja válido: \n" + "Você tem " + (3 - i) + " tentativas.");
