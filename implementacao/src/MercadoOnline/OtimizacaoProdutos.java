@@ -16,20 +16,25 @@ public class OtimizacaoProdutos {
             }
         }
 
+        for (Produto p : auxAnalise.keySet()) {
+            vendeuMenos = auxAnalise.get(p);
+        }
+
         for (Produto produto : auxAnalise.keySet()) {
-            if (auxAnalise.get(produto) > vendeuMais)
+            if (auxAnalise.get(produto) > vendeuMais) {
                 vendeuMais = auxAnalise.get(produto);
-            else if (auxAnalise.get(produto) < vendeuMais)
+            } else if (auxAnalise.get(produto) < vendeuMenos) {
                 vendeuMenos = auxAnalise.get(produto);
+            }
         }
 
         for (Produto produto : auxAnalise.keySet()) {
             if (auxAnalise.get(produto) == vendeuMais) {
                 JOptionPane.showMessageDialog(null, "O produto " + produto.getNomeProduto() + " vendeu mais na categoria "
-                        + produto.getCategoria());
+                        + produto.getCategoria() + " quantidade: " + auxAnalise.get(produto));
             } else if (auxAnalise.get(produto) == vendeuMenos) {
                 JOptionPane.showMessageDialog(null, "O produto " + produto.getNomeProduto() + " vendeu menos na categoria "
-                        + produto.getCategoria());
+                        + produto.getCategoria() + " quantidade: " + auxAnalise.get(produto));
             }
         }
         auxAnalise = new HashMap<>();

@@ -11,7 +11,7 @@ public class CarrinhoDeCompras {
 
 
     public boolean adicionarProdutos(Produto p, int quantidade) {
-        if (produtosCarrinho.containsKey(p)) {
+        if (produtosCarrinho.containsKey(p.getNomeProduto())) {
             produtosCarrinho.replace(p, produtosCarrinho.get(p) + quantidade);
             produtosAnalise.replace(p, produtosAnalise.get(p) + quantidade);
             return true;

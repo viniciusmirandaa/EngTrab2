@@ -3,7 +3,7 @@ package MercadoOnline;
 import javax.swing.*;
 
 public class Pagamento {
-    String comprovante = "";
+    private String comprovante = "";
 
     private void gerarComprovanteDeVenda(Cliente cliente, CarrinhoDeCompras carrinho) {
         for (Produto p : carrinho.produtosCarrinho.keySet()) {
