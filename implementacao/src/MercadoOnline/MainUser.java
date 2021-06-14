@@ -9,7 +9,6 @@ public class MainUser {
     public static void main(String[] args) {
         //instanciando objetos
         Cliente usuario = new Cliente();
-        Catalogo catalogo = new Catalogo();
         CarrinhoDeCompras carrinho = new CarrinhoDeCompras();
         Pagamento pagamento = new Pagamento();
         CatalogoCliente catalogoCliente = new CatalogoCliente();
