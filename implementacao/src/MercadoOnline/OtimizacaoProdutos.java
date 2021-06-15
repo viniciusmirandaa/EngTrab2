@@ -8,6 +8,19 @@ public class OtimizacaoProdutos {
     public HashMap<Produto, Integer> auxAnalise = new HashMap<>();
     private Produto.Categoria categoria;
 
+    public boolean tamanhoCategoria(Produto.Categoria categoria) {
+        for (Produto produto : CarrinhoDeCompras.produtosAnalise.keySet()) {
+            if (produto.getCategoria().equals(categoria)) {
+                auxAnalise.put(produto, CarrinhoDeCompras.produtosAnalise.get(produto));
+            }
+        }
+        if (auxAnalise.size() >= 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public void analiseProdutos(Produto.Categoria categoria) {
         String concVendeuMenos = "";
         String concVendeuMenosUnidade = "";
@@ -20,11 +33,7 @@ public class OtimizacaoProdutos {
 
         this.categoria = categoria;
 
-        for (Produto produto : CarrinhoDeCompras.produtosAnalise.keySet()) {
-            if (produto.getCategoria().equals(categoria)) {
-                auxAnalise.put(produto, CarrinhoDeCompras.produtosAnalise.get(produto));
-            }
-        }
+        tamanhoCategoria(categoria);
 
         for (Produto p : auxAnalise.keySet()) {
             vendeuMenos = auxAnalise.get(p);

@@ -14,6 +14,9 @@ public class MainAdmin {
         boolean loop = true;
         Produto p;
         Produto.Categoria retornoCategoria;
+        int codigoProdutoExcluir;
+        boolean opcaoInvalida = false;
+        String respotaCategoriaInvalida;
 
         String usuario = JOptionPane.showInputDialog("Defina o nome de administrador: ");
         String senha = JOptionPane.showInputDialog("Defina a senha do administrador: ");
@@ -25,7 +28,7 @@ public class MainAdmin {
         do {
 
             String resposta = JOptionPane.showInputDialog("Selecione a opção desejada. \n" + "Cadastrar produto. \n"
-                    + "Excluir produto. \n" + "Alterar produto. \n" + "Pesquisar produto. \n" + "Sair do menu.");
+                    + "Excluir produto. \n" + "Alterar produto. \n" + "Pesquisar produto. \n" + "Otimizar estoque. \n" + "Sair do menu.");
 
             switch (resposta.charAt(0)) {
                 case 'C':
@@ -49,13 +52,15 @@ public class MainAdmin {
                     c.cadastrarProduto(p);
                     break;
                 case 'E':
-                    String cPE = JOptionPane.showInputDialog("Insira o código do produto para a exclusão: ");
-                    int codigoProdutoExcluir = Integer.parseInt(cPE);
-                    if (c.excluirProduto(codigoProdutoExcluir)) {
-                        JOptionPane.showMessageDialog(null, "O produto foi removido com sucesso.");
-                    } else {
-                        JOptionPane.showMessageDialog(null, "Produto não existente, insira um novo código.");
-                    }
+                    do {
+                        String cPE = JOptionPane.showInputDialog("Insira o código do produto para a exclusão: ");
+                        codigoProdutoExcluir = Integer.parseInt(cPE);
+                        if (c.excluirProduto(codigoProdutoExcluir)) {
+                            JOptionPane.showMessageDialog(null, "O produto foi removido com sucesso.");
+                        } else {
+                            JOptionPane.showMessageDialog(null, "Produto não existente, insira um novo código.");
+                        }
+                    } while (!c.excluirProduto(codigoProdutoExcluir));
                     break;
                 case 'A':
                     String cPA = JOptionPane.showInputDialog("Insira o código do produto para alterar: ");
@@ -87,16 +92,110 @@ public class MainAdmin {
                 case 'P':
                     String cPP = JOptionPane.showInputDialog("Insira o código do produto para pesquisar o produto: ");
                     int codigoProdutoPesquisar = Integer.parseInt(cPP);
+                    while (!c.verificaCodigo(codigoProdutoPesquisar)) {
+                        cPA = JOptionPane.showInputDialog("Redigite o código de barras do produto: ");
+                        codigoProdutoPesquisar = Integer.parseInt(cPA);
+                    }
                     c.pesquisarProduto(codigoProdutoPesquisar);
+                    break;
+                case 'O':
+                    String categoriaNome = "";
+                        for (Produto.Categoria cat : Produto.Categoria.values()) {
+                            categoriaNome += cat.name() + "\n";
+                        }
+                    do {
+                        String respostaCategoria = JOptionPane.showInputDialog("Selecione a categoria do produto que deseja otimizar: " + categoriaNome + "\n" + "Digite 1 para sair do programa");
+                        switch (respostaCategoria.charAt(0)) {
+                            case 'R':
+                                if (!otimizacaoProdutos.tamanhoCategoria(Produto.Categoria.Refrigerante)) {
+                                    JOptionPane.showMessageDialog(null, "A categoria selecionada não possui nenhum produto cadastrado.");
+                                    respotaCategoriaInvalida = JOptionPane.showInputDialog("Você deseja continuar no menu Otimizar produto? \n" + "Sim/Não");
+                                    switch (respotaCategoriaInvalida.charAt(0)) {
+                                        case 's':
+                                        case 'S':
+                                            opcaoInvalida = true;
+                                            break;
+                                        case 'n':
+                                        case 'N':
+                                            opcaoInvalida = false;
+                                            break;
+                                    }
+                                } else {
+                                    otimizacaoProdutos.analiseProdutos(Produto.Categoria.Refrigerante);
+                                    opcaoInvalida = true;
+                                }
+                                break;
+                            case 'L':
+                                if (!otimizacaoProdutos.tamanhoCategoria(Produto.Categoria.Leite)) {
+                                    JOptionPane.showMessageDialog(null, "A categoria selecionada não possui nenhum produto cadastrado.");
+                                    respotaCategoriaInvalida = JOptionPane.showInputDialog("Você deseja continuar no menu Otimizar produto? \n" + "Sim/Não");
+                                    switch (respotaCategoriaInvalida.charAt(0)) {
+                                        case 's':
+                                        case 'S':
+                                            opcaoInvalida = true;
+                                            break;
+                                        case 'n':
+                                        case 'N':
+                                            opcaoInvalida = false;
+                                            break;
+                                    }
+                                } else {
+                                    otimizacaoProdutos.analiseProdutos(Produto.Categoria.Leite);
+                                    opcaoInvalida = true;
+                                }
+                                break;
+                            case 'C':
+                                if (!otimizacaoProdutos.tamanhoCategoria(Produto.Categoria.Chocolate)) {
+                                    JOptionPane.showMessageDialog(null, "A categoria selecionada não possui nenhum produto cadastrado.");
+                                    respotaCategoriaInvalida = JOptionPane.showInputDialog("Você deseja continuar no menu Otimizar produto? \n" + "Sim/Não");
+                                    switch (respotaCategoriaInvalida.charAt(0)) {
+                                        case 's':
+                                        case 'S':
+                                            opcaoInvalida = true;
+                                            break;
+                                        case 'n':
+                                        case 'N':
+                                            opcaoInvalida = false;
+                                            break;
+                                    }
+                                } else {
+                                    otimizacaoProdutos.analiseProdutos(Produto.Categoria.Chocolate);
+                                    opcaoInvalida = true;
+                                }
+                                break;
+                            case 'S':
+                                if (!otimizacaoProdutos.tamanhoCategoria(Produto.Categoria.Salgadinho)) {
+                                    JOptionPane.showMessageDialog(null, "A categoria selecionada não possui nenhum produto cadastrado.");
+                                    respotaCategoriaInvalida = JOptionPane.showInputDialog("Você deseja continuar no menu Otimizar produto? \n" + "Sim/Não");
+                                    switch (respotaCategoriaInvalida.charAt(0)) {
+                                        case 's':
+                                        case 'S':
+                                            opcaoInvalida = true;
+                                            break;
+                                        case 'n':
+                                        case 'N':
+                                            opcaoInvalida = false;
+                                            break;
+                                    }
+                                } else {
+                                    otimizacaoProdutos.analiseProdutos(Produto.Categoria.Salgadinho);
+                                    opcaoInvalida = true;
+                                }
+                                break;
+                            case '1':
+                                opcaoInvalida = false;
+                                break;
+                            default:
+                                JOptionPane.showMessageDialog(null, "Opção inválida.");
+                                opcaoInvalida = true;
+                                break;
+                        }
+                    } while (opcaoInvalida);
                     break;
                 case 'S':
                     loop = false;
                     break;
             }
         } while (loop);
-        otimizacaoProdutos.analiseProdutos(Produto.Categoria.Refrigerante);
-        otimizacaoProdutos.analiseProdutos(Produto.Categoria.Chocolate);
-        otimizacaoProdutos.analiseProdutos(Produto.Categoria.Leite);
-        otimizacaoProdutos.analiseProdutos(Produto.Categoria.Salgadinho);
     }
 }
