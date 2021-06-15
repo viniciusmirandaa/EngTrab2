@@ -5,7 +5,7 @@ import java.util.HashMap;
 
 public class CatalogoCliente {
 
-    Produto aux;
+    private Produto aux;
     HashMap<Produto, Integer> produtosComprados = new HashMap<>();
 
     public HashMap<Produto, Integer> mostrarProduto() {

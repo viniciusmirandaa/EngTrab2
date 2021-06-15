@@ -64,10 +64,10 @@ public class Catalogo {
         return false;
     }
 
-    public boolean pesquisarProduto(int codigoParaExcluir) {
+    public boolean pesquisarProduto(int codigoParaPesquisar) {
         for (int i = 0; i < listaProdutos.size(); i++) {
             aux = listaProdutos.get(i);
-            if (aux.getCodigoProduto() == codigoParaExcluir) {
+            if (aux.getCodigoProduto() == codigoParaPesquisar) {
                 JOptionPane.showMessageDialog(null, "Produto: " + aux.getNomeProduto() + "\n"
                         + "Preço: " + aux.getPrecoProduto() + "\n" + "Categoria: " + aux.getCategoria() + "\n" + "Código produto: " + aux.getCodigoProduto());
                 return true;

@@ -6,8 +6,6 @@ import java.util.HashMap;
 public class OtimizacaoProdutos {
 
     public HashMap<Produto, Integer> auxAnalise = new HashMap<>();
-
-
     private Produto.Categoria categoria;
 
     public void analiseProdutos(Produto.Categoria categoria) {
