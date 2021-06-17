@@ -9,14 +9,13 @@ public class Produto {
     private int codigoProduto;
 
     public enum Categoria {
-        Refrigerante, Salgadinho, Chocolate, Leite, Vazio;
+        Refrigerante, Salgadinho, Chocolate, Leite, Vazio
     }
 
     public static Categoria escolheOpcao(String opcao) {
         Categoria categoria;
         if (!opcao.equals(Categoria.Refrigerante.name()) && !opcao.equals(Categoria.Salgadinho.name())
-                && !opcao.equals(Categoria.Chocolate.name()) && !opcao.equals(Categoria.Leite.name()
-        )) {
+                && !opcao.equals(Categoria.Chocolate.name()) && !opcao.equals(Categoria.Leite.name())) {
             categoria = Categoria.Vazio;
             return categoria;
         } else if (opcao.equals(Categoria.Refrigerante.name())) {
@@ -44,7 +43,7 @@ public class Produto {
         this.codigoProduto = codigoProduto;
     }
 
-    
+
 
     public String getNomeProduto() {
         return nomeProduto;

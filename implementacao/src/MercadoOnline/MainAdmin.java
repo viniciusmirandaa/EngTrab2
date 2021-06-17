@@ -101,6 +101,9 @@ public class MainAdmin {
                 case 'O':
                     String categoriaNome = "";
                         for (Produto.Categoria cat : Produto.Categoria.values()) {
+                            if(cat.equals(Produto.Categoria.valueOf(Produto.Categoria.Vazio.name()))){
+                                break;
+                            }
                             categoriaNome += cat.name() + "\n";
                         }
                     do {

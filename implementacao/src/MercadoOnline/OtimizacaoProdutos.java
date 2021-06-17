@@ -42,7 +42,7 @@ public class OtimizacaoProdutos {
         for (Produto produto : auxAnalise.keySet()) {
             if (auxAnalise.get(produto) > vendeuMais) {
                 vendeuMais = auxAnalise.get(produto);
-            } else if (auxAnalise.get(produto) < vendeuMenos) {
+            } if (auxAnalise.get(produto) < vendeuMenos) {
                 vendeuMenos = auxAnalise.get(produto);
             }
         }
