@@ -44,6 +44,8 @@ public class Produto {
         this.codigoProduto = codigoProduto;
     }
 
+    
+
     public String getNomeProduto() {
         return nomeProduto;
     }
